@@ -12,3 +12,4 @@ spec:
     name: backend
   selector:
     tier: backend
+  clusterIP: None
