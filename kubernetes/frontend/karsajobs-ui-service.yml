@@ -15,4 +15,5 @@ spec:
     targetPort: 443
   selector:
     tier: frontend
+  type: NodePort
     
