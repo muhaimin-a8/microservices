@@ -28,12 +28,12 @@ spec:
           value: $(BACKEND_TIER_SERVICE_PORT_BACKEND)
         - name: MONGO_HOST
           value: mongodb://$(MONGO_TIER_SERVICE_HOST):$(MONGO_TIER_SERVICE_PORT_BACKEND)
-	      - name: MONGO_USER
+        - name: MONGO_USER
           valueFrom:
             secretKeyRef:
               name: mongo-credentials
               key: MONGO_ROOT_USERNAME
-      	- name: MONGO_PASS
+        - name: MONGO_PASS
           valueFrom:
             secretKeyRef:
               name: mongo-credentials
