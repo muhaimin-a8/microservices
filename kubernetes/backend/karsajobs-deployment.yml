@@ -27,7 +27,7 @@ spec:
         - name: APP_PORT
           value: $(BACKEND_TIER_SERVICE_PORT_BACKEND)
         - name: MONGO_HOST
-          value: mongodb$(MONGO_TIER_SERVICE_HOST):$(MONGO_TIER_SERVICE_PORT_BACKEND)
+          value: mongodb://$(MONGO_TIER_SERVICE_HOST):$(MONGO_TIER_SERVICE_PORT_BACKEND)
 	      - name: MONGO_USER
           valueFrom:
             secretKeyRef:
