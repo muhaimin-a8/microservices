@@ -7,11 +7,11 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 1Gi
+    storage: 2Gi
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   hostPath:
-    path: "/mnt/data/mongo"
+    path: "/data/db"
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -19,10 +19,11 @@ metadata:
   name: mongo-pv-claim
   labels:
     app: mongo
+    namespace: prod-ns
 spec:
   storageClassName: manual
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
-      storage: 1Gi
+      storage: 2Gi
