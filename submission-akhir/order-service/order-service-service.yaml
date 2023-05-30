@@ -4,6 +4,7 @@ metadata:
   name: order-service
   labels:
     app: e-commerce-app
+    service: order-service
   namespace: prod-ns
 spec:
   ports:
@@ -12,5 +13,6 @@ spec:
     port: 3000
   selector:
     service: order
+    app: e-commerce-app
   type: NodePort
     
