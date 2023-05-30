@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+  namespace: prod-ns
+  labels:
+    app: e-commerce-app
+spec: 
+  ports:
+    - port: 5672
+      protocol: TCP
+      name: rabbitmq
+    - port: 15672
+      protocol: TCP
+      name: http
+  selector:
+    app: e-commerce-app
+    tier: messagebroker
+  type: NodePort

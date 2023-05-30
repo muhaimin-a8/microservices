@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+  labels:
+    app: e-commerce-app
+  namespace: prod-ns
+spec:
+  ports:
+  - name: order
+    protocol: TCP
+    port: 3000
+  selector:
+    service: order
+  type: NodePort
+    

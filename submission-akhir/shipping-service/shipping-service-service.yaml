@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: shipping-service
+  labels:
+    app: e-commerce-app
+  namespace: prod-ns
+spec:
+  ports:
+  - name: shipping
+    protocol: TCP
+    port: 3001
+  selector:
+    service: shipping
+  type: NodePort
+    

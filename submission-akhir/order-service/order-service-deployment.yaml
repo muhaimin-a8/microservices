@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+  labels:
+    app: e-commerce-app
+    service: order
+  namespace: prod-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: order
+  template:
+    metadata:
+      labels:
+        app: e-commerce-app
+        service: order
+      namespace: prod-ns
+    spec:
+      containers:
+      - name: order-service
+        image: ghcr.io/muhaimin-a8/order_service:latest
+        ports:
+          - containerPort: 3000
+        env:
+        - name: AMQP_URL
+          value: amqp://$(RABBITMQ_SERVICE_HOST):5672
